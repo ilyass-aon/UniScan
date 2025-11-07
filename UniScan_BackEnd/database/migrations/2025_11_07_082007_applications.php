@@ -31,6 +31,9 @@ return new class extends Migration
             $table->timestamp('processed_at')->nullable();
 
             $table->timestamps();
+            
+            // Pour éviter un user qui applique plusieurs fois à la même filière
+            $table->unique(['user_id', 'filiere_id']);
         });
     }
 
