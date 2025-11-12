@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController; 
+use App\Http\Controllers\Api\ApplicationController;
 
 /*
 |----------------------
@@ -28,6 +29,9 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 
+    // route pour soumettre dossier de candidature
+    Route::post('/application', [ApplicationController::class, 'store']);
+    
     // TODO: On ajoutera ici les autres routes (ex: soumettre le formulaire, voir le statut...)
 
 });
