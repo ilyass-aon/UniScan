@@ -32,6 +32,12 @@ Route::middleware('auth:sanctum')->group(function () {
     // route pour soumettre dossier de candidature
     Route::post('/application', [ApplicationController::class, 'store']);
     
+    // route pour uploader un document lie a une candidature
+    Route::post('/application/{application}/document', [ApplicationController::class, 'uploadDocument']);
+    
+    // route pour afficher les status des candidatures de l utilisateur connecte
+    Route::get('/my-application', [ApplicationController::class, 'show']);
+    
     // TODO: On ajoutera ici les autres routes (ex: soumettre le formulaire, voir le statut...)
 
 });
