@@ -90,8 +90,10 @@ class ApplicationController extends Controller
             'type_document' => $validatedData['type_document'],
             'nom_original' => $request->file('document_file')->getClientOriginalName(),
             'chemin_fichier' => $path, 
-            'ocr_status' => 'pending', // pour l'OCR plus tard
+            'ocr_status' => 'pending', 
         ]);
+
+        \App\Jobs\ProcessOcrDocument::dispatch($document);
 
         return response()->json([
             'message' => 'Document téléversé avec succès.',
