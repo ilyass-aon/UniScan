@@ -14,6 +14,7 @@ use Google\Cloud\Vision\V1\AnnotateImageRequest;
 use Google\Cloud\Vision\V1\Feature;
 use Google\Cloud\Vision\V1\Image;
 use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
+use App\Services\OcrDataExtractor;
 
 class ProcessOcrDocument implements ShouldQueue
 {
@@ -73,10 +74,21 @@ class ProcessOcrDocument implements ShouldQueue
 
             if (count($annotations) > 0) {
                 $fullText = $annotations[0]->getDescription();
+                $extractor = new OcrDataExtractor();
+                $extractedData = $extractor->extract($fullText, $this->document->type_document);
+
+    
+                $application = $this->document->application; 
+    
+                $consistencyReport = $extractor->verifyConsistency($extractedData, $application);
+
+                $finalData = array_merge($extractedData, ['verification' => $consistencyReport]);
+
                 
                 $this->document->update([
                     'texte_ocr_brut' => $fullText,
                     'ocr_status' => 'success',
+                    'data_extraite_json' => $finalData,
                 ]);
             } else {
                 $this->document->update([

@@ -76,7 +76,7 @@ class ApplicationController extends Controller
                 'string',
                 Rule::in(['cin_recto', 'cin_verso', 'bac_releve'])
             ],
-            'document_file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048', // 2MB max
+            'document_file' => 'required|file|image|mimes:jpeg,png,jpg|max:4048', // 2MB max
         ]);
 
         // 3. Stockage du fichier avec nom unique et dans 'storage/app/'
