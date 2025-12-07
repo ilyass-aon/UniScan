@@ -17,11 +17,15 @@ use App\Http\Controllers\Api\FiliereController;
 // --- Routes d Authentification (Publiques) ---
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+// Dans le groupe middleware auth:sanctum
+
 
 
 // --- Routes Protegees (besoin d un token) ---
 
 Route::middleware('auth:sanctum')->group(function () {
+
+    Route::get('/my-application', [ApplicationController::class, 'myApplication']);
     
     // Route de deconnexion
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -38,7 +42,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/application/{application}/document', [ApplicationController::class, 'uploadDocument']);
     
     // route pour afficher les status des candidatures de l utilisateur connecte
-    Route::get('/my-application', [ApplicationController::class, 'show']);
+    //Route::get('/my-application', [ApplicationController::class, 'show']);
 });
 
 // --- Routes Admin ---

@@ -119,6 +119,28 @@ class ApplicationController extends Controller
         }
         return response()->json($application, 200); // 200 = OK
     }
-     
+
+     //Permet de recuperer la candidature
+    public function myApplication(Request $request)
+    {
+        // On récupère la candidature de l'utilisateur connecté
+        $application = Application::where('user_id', $request->user()->id)
+                                  ->with('documents') 
+                                  ->first();
+
+        if (!$application) {
+            // CAS 1 : Pas de dossier
+            return response()->json([
+                'exists' => false,
+                'message' => 'Aucune candidature trouvée'
+            ], 200);
+        }
+
+        // CAS 2 : Dossier trouve
+        return response()->json([
+            'exists' => true,          
+            'application' => $application
+        ], 200);
+    }
 
 }
