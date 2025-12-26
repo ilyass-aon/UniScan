@@ -82,7 +82,7 @@ class ApplicationController extends Controller
         // 3. Stockage du fichier avec nom unique et dans 'storage/app/'
         $path = $request->file('document_file')->store(
             'uploads/' . $application->user_id . '/' . $application->id,// 'uploads/[user_id]/[application_id]'
-            'local' 
+            'public' 
         );
         //Creation de l enregistrement Document lie a la candidature
         $document = Document::create([

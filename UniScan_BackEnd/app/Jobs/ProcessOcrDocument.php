@@ -41,7 +41,7 @@ class ProcessOcrDocument implements ShouldQueue
                 'credentials' => $credentialsPath
             ]);
 
-            $imagePath = Storage::path($this->document->chemin_fichier);
+            $imagePath = Storage::disk('public')->path($this->document->chemin_fichier);
             $imageContent = file_get_contents($imagePath);
 
             $image = new Image();

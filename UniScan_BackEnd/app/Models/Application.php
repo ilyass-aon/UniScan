@@ -45,7 +45,7 @@ class Application extends Model
     /**
      * Relation: Une candidature "appartient à"  un étudiant.
      */
-    public function etudiant()
+    public function user()
     {
         // Le nom de la fonction est 'etudiant' pour la clarté
         return $this->belongsTo(User::class, 'user_id');

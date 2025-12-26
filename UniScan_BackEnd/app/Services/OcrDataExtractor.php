@@ -53,8 +53,24 @@ public function extract(string $text, string $typeDocument): array
             }
 
             //  Extraction de l'année 
-            if (preg_match('/(20\d{2})/', $cleanText, $matches)) {
-                $data['annee_bac'] = $matches[1];
+            if (preg_match_all('/20\d{2}\s?[\/-]\s?(20\d{2})/', $cleanText, $matches)) {
+                
+                // $matches[1] contient les années de fin (ex: 2017, 2018, 2019)
+                // On prend la valeur maximale parmi ces années scolaires
+                $data['annee_bac'] = max($matches[1]);
+
+            } 
+            // 2. Fallback (Secours) : Si l'OCR a mal lu les slashs "/", on prend juste la plus grande année trouvée
+            elseif (preg_match_all('/(20\d{2})/', $cleanText, $allYears)) {
+                
+                $years = $allYears[1];
+                // On trie pour avoir la plus grande
+                rsort($years);
+                
+                // Petite sécurité : Si la plus grande date est l'année actuelle ou future (date d'impression), 
+                // on essaie de prendre la suivante si elle existe.
+                // Sinon on prend la plus grande par défaut.
+                $data['annee_bac'] = $years[0]; 
             }
         }
 
