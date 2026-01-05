@@ -23,6 +23,12 @@
 - **Vérification Automatique :** Algorithme comparant les données saisies vs les données extraites (Regex + Levenshtein).
 - **Traitement Asynchrone :** Utilisation de `Queue/Jobs` pour un traitement OCR en arrière-plan sans bloquer l'utilisateur.
 
+### 🖥️ Dashboard Admin (Web)
+- **Vue d'ensemble :** Tableau de bord avec filtrage par **Filière** et par **Statut**.
+- **Comparaison Visuelle :** Affichage côte à côte du document scanné et des données extraites.
+- **Audit IA :** Badges automatiques ( Valide /  Erreur) basés sur la cohérence des données (ex: Note saisie vs Note détectée).
+- **Prise de décision :** Validation ou Rejet avec motif (envoyé à l'étudiant).
+
 ---
 
 ## 🛠️ Stack Technique
@@ -60,6 +66,9 @@ php artisan migrate
 # 5. Configuration Google Vision
 # Placez votre fichier "google-credentials.json" dans storage/app/
 # Ajoutez dans .env : GOOGLE_APPLICATION_CREDENTIALS=storage/app/google-credentials.json
+
+# 6. Créer le lien symbolique pour les images (Important !)
+php artisan storage:link
 
 ⚠️ Important - Pour que l'OCR fonctionne : Vous devez lancer ces deux commandes dans deux terminaux séparés :
 
