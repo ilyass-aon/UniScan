@@ -135,8 +135,8 @@ public class DashboardActivity extends AppCompatActivity {
         super.onResume();
         SharedPreferences prefs = getSharedPreferences("UniScanPrefs", MODE_PRIVATE);
         String token = prefs.getString("auth_token", null);
-        if (token != null) {
-            checkApplicationStatus("Bearer " + token);
-        }
+            if (token != null) {
+                checkApplicationStatus("Bearer " + token);
+            }
     }
 }
