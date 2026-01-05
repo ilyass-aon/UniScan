@@ -24,17 +24,20 @@ L'étudiant crée un compte, remplit ses informations, scanne ses justificatifs 
 ---
 
 ### 🖥️ Portail Administrateur (Web)
+
 L'administration dispose d'un outil puissant pour filtrer les candidatures et valider les dossiers grâce à l'IA qui détecte les fraudes ou erreurs de saisie.
 
 **1. Tableau de bord de gestion**
+
 Vue globale avec filtrage par filière et statut des dossiers.
 ![Dashboard Admin](screenshots/dashboard.png)
 
 **2. Comparaison IA & Validation**
-L'IA compare les données saisies par l'étudiant avec celles extraites du document (OCR) et signale les incohérences (ex: Note du Bac falsifiée).
-![Comparaison IA](screenshots/compare.jpg)
 
-*(Interface de connexion administrateur)*
+L'IA compare les données saisies par l'étudiant avec celles extraites du document (OCR) et signale les incohérences (ex: Note du Bac falsifiée).
+![Comparaison IA](screenshots/compare.png)
+
+**(Interface de connexion administrateur)**
 <img src="screenshots/admin_conn.png" width="400"/>
 
 ---
