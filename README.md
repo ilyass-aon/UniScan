@@ -8,6 +8,36 @@
 **UniScan** est une solution complète (Mobile + Backend) qui digitalise l'inscription universitaire. L'application permet aux étudiants de soumettre leur dossier et utilise l'**Intelligence Artificielle** pour vérifier automatiquement la cohérence des données saisies (Nom, Notes, CNE) en scannant leurs documents officiels.
 
 ---
+## 📸 Aperçu du Projet
+
+### 📱 Application Étudiant (Mobile)
+L'étudiant crée un compte, remplit ses informations, scanne ses justificatifs (Bac, CIN) et suit l'état de sa demande en temps réel.
+
+| Inscription & Login | Tableau de bord | Formulaire Candidature |
+|:---:|:---:|:---:|
+| <img src="screenshots/signin.png" width="200"/> <img src="screenshots/login.png" width="200"/> | <img src="screenshots/candidature.png" width="200"/> | <img src="screenshots/deposer_candida.png" width="200"/> |
+
+| Scan Intelligent (OCR) | Suivi du Statut |
+|:---:|:---:|
+| <img src="screenshots/depos_doc.png" width="200"/> | <img src="screenshots/status.png" width="200"/> |
+
+---
+
+### 🖥️ Portail Administrateur (Web)
+L'administration dispose d'un outil puissant pour filtrer les candidatures et valider les dossiers grâce à l'IA qui détecte les fraudes ou erreurs de saisie.
+
+**1. Tableau de bord de gestion**
+Vue globale avec filtrage par filière et statut des dossiers.
+![Dashboard Admin](screenshots/dashboard.png)
+
+**2. Comparaison IA & Validation**
+L'IA compare les données saisies par l'étudiant avec celles extraites du document (OCR) et signale les incohérences (ex: Note du Bac falsifiée).
+![Comparaison IA](screenshots/compare.jpg)
+
+*(Interface de connexion administrateur)*
+<img src="screenshots/admin_conn.png" width="400"/>
+
+---
 
 ## 🚀 Fonctionnalités Principales
 
